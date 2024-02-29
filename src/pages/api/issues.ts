@@ -14,9 +14,9 @@ export const POST: APIRoute = async ({ request }) => {
   if (!validation.success) return new Response(JSON.stringify(validation.error.errors), { status: 400 })
 
   const newIssue = await prisma.issue.create({
-    data: { title: body.title, description: body.description }
+    data: { title: body.title, description: body.description, updatedAt: new Date() }
   })
 
-  return new Response(JSON.stringify(newIssue), { status: 201})
+  return new Response(JSON.stringify(newIssue), { status: 201 })
 }
 
