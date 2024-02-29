@@ -1,0 +1,12 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import { Button, TextArea, TextField } from '@radix-ui/themes'
+---
+
+<Layout title='New Issue Page'>
+	<div class='max-w-xl space-y-3'>
+		<TextField.Input placeholder='Title' />
+		<TextArea placeholder='Description' />
+		<Button>Submit New Issue</Button>
+	</div>
+</Layout>

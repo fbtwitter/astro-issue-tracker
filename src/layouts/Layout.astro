@@ -2,57 +2,55 @@
 import Card from '../components/Card.astro'
 import NavBar from '../components/react/NavBar'
 import '@radix-ui/themes/styles.css'
-import { Theme } from '@radix-ui/themes'
-
+import { Theme, ThemePanel } from '@radix-ui/themes'
 
 interface Props {
-  title: string;
+	title: string
 }
 
 const { title } = Astro.props
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-  <meta name="description" content="Astro description"/>
-  <meta name="viewport" content="width=device-width"/>
-  <meta name="generator" content={Astro.generator}/>
-  <title>{title}</title>
-</head>
-<body>
-<Theme>
-  <Card
-    href="https://docs.astro.build/"
-    title="Documentation"
-    body="Learn how Astro works and explore the official API docs."
-  />
-  <NavBar astroAPI={Astro}/>
-  <main>
-    <slot/>
-  </main>
-</Theme>
-</body>
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='description' content='Astro description' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Theme>
+			<Card
+				href='https://docs.astro.build/'
+				title='Documentation'
+				body='Learn how Astro works and explore the official API docs.'
+			/>
+			<NavBar astroAPI={Astro} />
+			<main class='p-5'>
+				<slot />
+			</main>
+		</Theme>
+	</body>
 </html>
 
 <style is:global>
-    :root {
-        --foreground-rgb: 0, 0, 0;
-        --background-rgb: 255, 255, 255;
-    }
+	:root {
+		--foreground-rgb: 0, 0, 0;
+		--background-rgb: 255, 255, 255;
+	}
 
-    /* @media (prefers-color-scheme: dark) {
+	/* @media (prefers-color-scheme: dark) {
          :root {
              --foreground-rgb: 255, 255, 255;
              --background-rgb: 0, 0, 0;
          }
      }*/
 
-    body {
-        color: rgb(var(--foreground-rgb));
-        background-color: rgb(var(--background-rgb));
-    }
-
+	body {
+		color: rgb(var(--foreground-rgb));
+		background-color: rgb(var(--background-rgb));
+	}
 </style>
